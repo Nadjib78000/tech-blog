@@ -1,4 +1,4 @@
-name: GitHub Pages
+name: Build Hugo Site Blog on Merge
 
 on:
   push:

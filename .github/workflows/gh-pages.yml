@@ -10,7 +10,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -40,3 +40,15 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+
+      - name: Configure AWS Credentials (Assume Role)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::158047604812:role/GitHubActions  # Replace with your AWS Role ARN
+          aws-region: eu-west-1  # Adjust to your AWS region
+
+      - name: Verify AWS Authentication
+        run: aws sts get-caller-identity  # Shows assumed role details
+
+      - name: Example: List S3 Buckets
+        run: aws s3 ls

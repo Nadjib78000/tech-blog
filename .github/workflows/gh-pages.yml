@@ -51,4 +51,4 @@ jobs:
         run: aws sts get-caller-identity  # Shows assumed role details
 
       - name: Sync public folder dir with S3 bucket
-        run: aws s3 sync public/ s3://tech-blog-bootcamp/tech_blog --delete
+        run: aws s3 sync public/ s3://tech-blog-bootcamp/tech_blog/public --delete

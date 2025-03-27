@@ -50,5 +50,5 @@ jobs:
       - name: Verify AWS Authentication
         run: aws sts get-caller-identity  # Shows assumed role details
 
-      - name: Example: List S3 Buckets
+      - name: List S3 Buckets
         run: aws s3 ls

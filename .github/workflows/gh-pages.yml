@@ -54,8 +54,8 @@ jobs:
         run: aws s3 rm s3://tech-blog-bootcamp/tech_blog/index.html
 
       - name: Sync public folder dir with S3 bucket
-        run: aws s3 cp public/ s3://tech-blog-bootcamp/tech_blog --recursive
-        # run: aws s3 sync public/ s3://tech-blog-bootcamp/tech_blog --delete
+        #run: aws s3 cp public/ s3://tech-blog-bootcamp/tech_blog --recursive
+        run: aws s3 sync public/ s3://tech-blog-bootcamp/tech_blog --delete
 
       - name: Invalidate CloudFront Cache
         run: aws cloudfront create-invalidation --distribution-id EMBJIYXFZ0H6R --paths "/*"

@@ -44,22 +44,14 @@ jobs:
       - name: Configure AWS Credentials (Assume Role)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::158047604812:role/GitHubActions  # Replace with your AWS Role ARN
-          aws-region: eu-west-1  # Adjust to your AWS region
+          role-to-assume: arn:aws:iam::158047604812:role/GitHubActions  
+          aws-region: eu-west-1 
 
       - name: Verify AWS Authentication
         run: aws sts get-caller-identity  # Shows assumed role details
 
-      - name: Delete index.html
-        run: aws s3 rm s3://tech-blog-bootcamp/tech_blog/index.html
-
       - name: Sync public folder dir with S3 bucket
-        #run: aws s3 cp public/ s3://tech-blog-bootcamp/tech_blog --recursive
-        #run: aws s3 cp public/ s3://tech-blog-bootcamp/tech_blog --recursive --acl public-read --cache-control "no-cache"
         run: aws s3 sync public/ s3://tech-blog-bootcamp/tech_blog --delete  --exact-timestamps  --cache-control "no-cache"
 
       - name: Invalidate CloudFront Cache
         run: aws cloudfront create-invalidation --distribution-id EMBJIYXFZ0H6R --paths "/*"
-
-      - name: Sync public folder dir with S3 bucket
-        run: aws s3 sync ./public/ s3://tech-blog-bootcamp/tech_blog --dryrun

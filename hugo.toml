@@ -142,7 +142,7 @@ theme = "LoveIt"
       # URL of the LOGO
       logo = ""
       # title name
-      name = "Cloud Talents Bootcamp Blog"
+      name = "Cloud Talents Bootcamp Blog - doka"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
@@ -198,7 +198,7 @@ theme = "LoveIt"
       # URL of avatar shown in home page (LINK_TO_YOUR_PHOTO_BELOW)
       avatarURL = "https://avatars.githubusercontent.com/u/204764800?s=400&u=47808852317da1dc870c8db3f3cb9f6ffc2fed59&v=4"
       #  title shown in home page (HTML format is supported)
-      title = "Cloud Talents Bootcamp Blog"
+      title = "Cloud Talents Bootcamp Blog - doka"
       # subtitle shown in home page
       subtitle = "My AWS DevOps Engineering Journey"
       # whether to use typeit animation for subtitle
